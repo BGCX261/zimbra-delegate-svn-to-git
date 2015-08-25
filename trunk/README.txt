@@ -1,0 +1,1 @@
+Domyœlny cel mavena (assembly:assembly) tworzy uruchamialnego jar-a ze wszystkimi zale¿noœciami: target/Zimbra-delegate-0.9-jar-with-dependencies.jar

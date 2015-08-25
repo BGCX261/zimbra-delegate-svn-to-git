@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>sius</groupId>
+	<artifactId>Zimbra-delegate</artifactId>
+	<packaging>jar</packaging>
+	<version>0.9</version>
+	<name>Zimbra-delegate</name>
+	<url>http://code.google.com/p/zimbra-delegate/</url>
+
+	<developers>
+		<developer>
+			<id>konryd</id>
+			<name>Konrad Delong</name>
+			<email>konryd@gmail.com</email>
+			<timezone>CET</timezone>
+		</developer>
+		<developer>
+			<id>dzievitz</id>
+			<name>Michal Dziedzic</name>
+			<email>dzievitz@gmail.com</email>
+			<timezone>CET</timezone>
+		</developer>
+	</developers>
+
+	<repositories>
+		<repository>
+			<id>modularity-releases</id>
+			<name>Modularity Releases Repository</name>
+			<url>http://m2.modularity.net.au/releases</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<build>
+		<defaultGoal>assembly:assembly</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>App</mainClass>
+							<packageName>zimbragh</packageName>
+							<addClasspath>true</addClasspath>
+						</manifest>
+						<manifestEntries>
+							<mode>development</mode>
+							<url>${pom.url}</url>
+						</manifestEntries>
+						<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<manifest>
+						<mainClass>App</mainClass>
+						<packageName>zimbragh</packageName>
+						<addClasspath>true</addClasspath>
+					</manifest>
+					<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.fortuna.ical4j</groupId>
+			<artifactId>ical4j</artifactId>
+			<version>1.0-rc1</version>
+		</dependency>
+	</dependencies>
+
+</project>
